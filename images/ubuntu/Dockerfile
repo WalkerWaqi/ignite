@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
       udev \
       vim-tiny \
       wget \
+      zip \
       docker \
       docker-compose && \
     apt-get clean && \
