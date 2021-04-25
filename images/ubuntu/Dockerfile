@@ -13,6 +13,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # Also, other utilities are installed
 RUN sed -i "s/archive.ubuntu.com/mirrors.163.com/g" /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
+      git \
+      git-lfs \
       curl \
       dbus \
       kmod \
