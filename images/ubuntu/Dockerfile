@@ -46,21 +46,25 @@ RUN sed -i -e 's/^AcceptEnv LANG LC_\*$/#AcceptEnv LANG LC_*/' \
            -e 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 RUN echo '{\n\
-            "registry-mirrors": [\n\
-              "https://9cpn8tt6.mirror.aliyuncs.com",\n\
-              "http://docker.mirrors.ustc.edu.cn",\n\
-              "http://hub-mirror.c.163.com"\n\
-            ],\n\
-            "insecure-registries": [\n\
-              "registry.docker-cn.com",\n\
-              "docker.mirrors.ustc.edu.cn",\n\
-              "registry.tro:15000",\n\
-              "172.27.120.202:15000"\n\
-            ],\n\
-            "debug": true,\n\
-            "experimental": true\n\
-          }'\
+  "registry-mirrors": [\n\
+    "https://9cpn8tt6.mirror.aliyuncs.com",\n\
+    "http://docker.mirrors.ustc.edu.cn",\n\
+    "http://hub-mirror.c.163.com"\n\
+  ],\n\
+  "insecure-registries": [\n\
+    "registry.docker-cn.com",\n\
+    "docker.mirrors.ustc.edu.cn",\n\
+    "registry.tro:15000",\n\
+    "172.27.120.202:15000"\n\
+  ],\n\
+  "debug": true,\n\
+  "experimental": true\n\
+}'\
 >/etc/docker/daemon.json
+
+RUN echo 'https_proxy=172.27.128.247:10809\n\
+http_proxy=172.27.128.247:10809'\
+>/opt/proxy.env
 
 # Set the root password to root when logging in through the VM's ttyS0 console
 RUN echo "root:123456" | chpasswd
