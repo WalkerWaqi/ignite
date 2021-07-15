@@ -55,7 +55,7 @@ RUN echo '{\n\
     "registry.docker-cn.com",\n\
     "docker.mirrors.ustc.edu.cn",\n\
     "registry.tro:15000",\n\
-    "172.27.120.202:15000"\n\
+    "172.27.128.202:15000"\n\
   ],\n\
   "debug": true,\n\
   "experimental": true\n\
